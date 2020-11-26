@@ -65,8 +65,8 @@ int main() {
 	
 }
 
-Output:
-Linked List : 4->3->2->1
-Middle element : 2
+//Output:
+//Linked List : 4->3->2->1
+//Middle element : 2
 
 
