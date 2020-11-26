@@ -1,0 +1,72 @@
+// Find the middle of a given linked list in c++
+
+#include <iostream>
+using namespace std;
+
+class Node{
+    public:
+    int data ;
+    Node* next;
+};
+
+Node* insertAtBegin(Node* head, int d)
+{
+    Node* new_node= new Node();
+    if(head==NULL)
+    {
+        new_node->data=d;
+        head = new_node;
+        return head;
+    }
+    else{
+        new_node->data=d;
+        new_node->next=head;
+        head=new_node;
+        return head;
+    }
+}
+
+void print(Node* head)
+{
+    while(head!=NULL)
+    {
+        cout<<head->data<<"->";
+        head=head->next;
+        if(head->next==NULL)
+        {
+            cout<<head->data<<endl;
+            break;
+        }
+    }
+}
+
+void findMiddle(Node* head)
+{
+    Node* start=head;
+    Node* sIndex=head;
+    while(sIndex !=NULL && sIndex->next != NULL)
+    {
+        sIndex= sIndex->next->next;
+        start= start->next;
+    }
+    cout<<"Middle element : "<<start->data<<endl;
+}
+
+int main() {
+	// your code goes here
+	Node* head=NULL;
+	head=insertAtBegin(head , 1);
+	head=insertAtBegin(head , 2);
+	head=insertAtBegin(head , 3);
+	head=insertAtBegin(head , 4);
+	cout<<"Linked List : ";
+	print(head);
+	findMiddle(head);
+	
+}
+
+Output:
+Linked List : 4->3->2->1
+Middle element : 2
+
+
